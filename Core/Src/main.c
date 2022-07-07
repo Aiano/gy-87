@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "mpu6050.h"
 #include "hmc5883l.h"
+#include "bmp180.h"
 #include "retarget.h"
 /* USER CODE END Includes */
 
@@ -49,6 +50,7 @@
 /* USER CODE BEGIN PV */
 MPU6050_t mpu6050;
 HMC5883L_t hmc5883l;
+BMP180_t bmp180;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -77,7 +79,7 @@ int main(void) {
     HAL_Init();
 
     /* USER CODE BEGIN Init */
-
+    HAL_Delay(100);
     /* USER CODE END Init */
 
     /* Configure the system clock */
@@ -97,6 +99,7 @@ int main(void) {
     hmc5883l.Magnet_X_offset = (-385 + 350) / 2;
     hmc5883l.Magnet_Y_offset = (-20 - 720) / 2;
     hmc5883l.Magnet_Z_offset = 0;
+    BMP180_init(&hi2c2);
     RetargetInit(&huart3);
     /* USER CODE END 2 */
 
@@ -105,8 +108,9 @@ int main(void) {
     while (1) {
         MPU6050_Read_All(&hi2c2, &mpu6050);
         HMC5883L_Read_All(&hi2c2, &hmc5883l);
-        printf("%d,%d,%d,%d,%d\n", (int) mpu6050.KalmanAngleX, hmc5883l.Magnet_X_Calib, hmc5883l.Magnet_Y_Calib,
-               hmc5883l.Magnet_Z_Calib, (int) hmc5883l.degree);
+        BMP180_read_all(&bmp180);
+        printf("%d,%d,%d,%d,%d,%d\n", (int) mpu6050.KalmanAngleX, hmc5883l.Magnet_X_Calib, hmc5883l.Magnet_Y_Calib,
+               hmc5883l.Magnet_Z_Calib, (int) hmc5883l.degree, bmp180.pressure);
 
         HAL_Delay(100);
         /* USER CODE END WHILE */

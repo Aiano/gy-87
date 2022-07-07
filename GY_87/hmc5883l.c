@@ -60,7 +60,7 @@ void HMC5883L_Read_All(I2C_HandleTypeDef *I2Cx, HMC5883L_t *DataStruct) {
     DataStruct->Magnet_Z_Calib = DataStruct->Magnet_Z_RAW - DataStruct->Magnet_Z_offset;
 
     // Calculate radian and degree
-    DataStruct->radian = atan2((double) DataStruct->Magnet_Y_RAW, (double) DataStruct->Magnet_X_RAW);
+    DataStruct->radian = atan2((double) DataStruct->Magnet_Y_Calib, (double) DataStruct->Magnet_X_Calib);
     DataStruct->degree = DataStruct->radian / 3.1415926 * 180.0 + 180.0;
 }
 
