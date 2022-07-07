@@ -14,13 +14,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfb5bf24-bc0c-4735-836d-ad668c81bf55" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GY_87/bmp180.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GY_87/bmp180.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gy-87.iml" beforeDir="false" />
+    <list default="true" id="bfb5bf24-bc0c-4735-836d-ad668c81bf55" name="变更" comment="add bmp180.c and bmp180.h">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GY_87/bmp180.c" beforeDir="false" afterPath="$PROJECT_DIR$/GY_87/bmp180.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,8 +107,16 @@
       <updated>1657014083347</updated>
       <workItem from="1657014084837" duration="26612000" />
       <workItem from="1657183937885" duration="46000" />
-      <workItem from="1657183999337" duration="5494000" />
+      <workItem from="1657183999337" duration="6308000" />
     </task>
+    <task id="LOCAL-00001" summary="add bmp180.c and bmp180.h">
+      <created>1657200581201</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657200581201</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,5 +132,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add bmp180.c and bmp180.h" />
+    <option name="LAST_COMMIT_MESSAGE" value="add bmp180.c and bmp180.h" />
   </component>
 </project>

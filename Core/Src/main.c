@@ -109,8 +109,8 @@ int main(void) {
         MPU6050_Read_All(&hi2c2, &mpu6050);
         HMC5883L_Read_All(&hi2c2, &hmc5883l);
         BMP180_read_all(&bmp180);
-        printf("%d,%d,%d,%d,%d,%d\n", (int) mpu6050.KalmanAngleX, hmc5883l.Magnet_X_Calib, hmc5883l.Magnet_Y_Calib,
-               hmc5883l.Magnet_Z_Calib, (int) hmc5883l.degree, bmp180.pressure);
+        printf("%d,%d,%d,%d,%d,%d,%d\n", (int) mpu6050.KalmanAngleX, hmc5883l.Magnet_X_Calib, hmc5883l.Magnet_Y_Calib,
+               hmc5883l.Magnet_Z_Calib, (int) hmc5883l.degree, bmp180.pressure, bmp180.temperature);
 
         HAL_Delay(100);
         /* USER CODE END WHILE */

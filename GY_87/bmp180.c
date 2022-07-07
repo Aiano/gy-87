@@ -45,9 +45,18 @@ void BMP180_start_measurement() {
 
 void BMP180_read_all(BMP180_t *data_struct) {
     uint8_t receive_data[2];
-    BMP180_start_measurement();
-    HAL_I2C_Mem_Read(_I2Cx, BMP180_READ, OUT_MSB, I2C_MEMADD_SIZE_8BIT, receive_data, 2, I2C_TIMEOUT);
+    uint8_t send_data;
 
+    // get temperature
+    send_data = CTRL_MEAS_TEMP;
+    HAL_I2C_Mem_Write(_I2Cx, BMP180_WRITE, CTRL_MEAS, I2C_MEMADD_SIZE_8BIT, &send_data, 1, I2C_TIMEOUT);
+    HAL_I2C_Mem_Read(_I2Cx, BMP180_READ, OUT_MSB, I2C_MEMADD_SIZE_8BIT, receive_data, 2, I2C_TIMEOUT);
+    data_struct->temperature = (int16_t) (receive_data[0] << 8 | receive_data[1]);
+
+    // get pressure
+    send_data = CTRL_MEAS_PRES;
+    HAL_I2C_Mem_Write(_I2Cx, BMP180_WRITE, CTRL_MEAS, I2C_MEMADD_SIZE_8BIT, &send_data, 1, I2C_TIMEOUT);
+    HAL_I2C_Mem_Read(_I2Cx, BMP180_READ, OUT_MSB, I2C_MEMADD_SIZE_8BIT, receive_data, 2, I2C_TIMEOUT);
     data_struct->pressure = (int16_t) (receive_data[0] << 8 | receive_data[1]);
     return;
 }
